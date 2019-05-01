@@ -7,7 +7,7 @@ when
 	b: BusinessObject()
 eval( b.getAsInt("time") < 12 )
 then
-	b.set("greet","G00d Morning " + b.get("name")); 
+	b.set("greet","G00d Morning2 " + b.get("name")); 
 end
 
 rule "Good Afternoon"
@@ -15,7 +15,7 @@ when
 	b: BusinessObject()
 	eval(b.getAsInt("time") >=12 && b.getAsInt("time") < 16)
 then
-	b.set("greet","Good Afternoon " + b.get("name"));
+	b.set("greet","Good Afternoon2 " + b.get("name"));
 end
 
 rule "Good Night"
@@ -23,5 +23,5 @@ when
 	b: BusinessObject()
 	eval(b.getAsInt("time") >= 16)
 then
-	b.set("greet","Good Afternoon " + b.get("name"));
+	b.set("greet","Good Night2 " + b.get("name"));
 end

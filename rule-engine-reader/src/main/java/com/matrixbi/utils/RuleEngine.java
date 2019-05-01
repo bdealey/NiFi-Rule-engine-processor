@@ -2,27 +2,35 @@ package com.matrixbi.utils;
 
 import java.io.Serializable;
 
-import org.kie.api.runtime.StatelessKieSession;
+//WPD import org.kie.api.runtime.StatelessKieSession;
+import org.kie.api.runtime.KieSession;
 
 public class RuleEngine implements Serializable {
 
 	private static final long serialVersionUID = 5067156438156998327L;
-	private StatelessKieSession kiaSession;
+	//WPD private StatelessKieSession kiaSession;
+	private KieSession kieSession;
 
 	public static RuleEngine createSession(String filepath) {
 		return new RuleEngine(filepath);
 	}
 
 	private RuleEngine(String filepath) {
-		kiaSession = KieSessionFactory.getNewKieSession(filepath);
+		kieSession = KieSessionFactory.getNewKieSession(filepath);
 	}
 
 	public void execute(Object object) {
-		kiaSession.execute(object);
+		kieSession.insert( object );
+		kieSession.fireAllRules( );
+		//kieSession.dispose();
+		
 	}
 
 	public void execute(Iterable objects) {
-		kiaSession.execute(objects);
+		kieSession.insert( objects );
+		kieSession.fireAllRules();
+		//kieSession.dispose();
+
 	}
 
 }
