@@ -24,9 +24,15 @@ public class ServiceCenterCurrentLoad {
 
     // Given the total number of msgs processed in server, compute current Service Center Load Percentage
     public void computeNewCurrentLoadPercentage( int totalMsgsProcessed ) {
-        currentLoadPercentage = getNumFormsSent() / totalMsgsProcessed * 100.0;
-
+        // System.out.println("POJO: computeNewCurrentLoadPercentage: SC: " + getServiceCenterAbbr() + " numFormsSent: " + getNumFormsSent() + " Total #msgs: " + totalMsgsProcessed + " %: " + ((double)getNumFormsSent() / (double)totalMsgsProcessed) * 100.0);
+        setCurrentLoadPercentage( ((double) getNumFormsSent() / (double)totalMsgsProcessed) * 100.0 );
     }
+
+    public void computeNewuUnderUtilizationPercentage( Double desiredLoadPercent ) {
+       // System.out.println("POJO: computeNewuUnderUtilizationPercentage: SC: " + getServiceCenterAbbr() + " getCurrentLoadPercentage: " + getCurrentLoadPercentage() + " desiredLoadPercent: " + desiredLoadPercent + " New UU%: " + getUnderUtilizationPercentage() );
+        setUnderUtilizationPercentage( desiredLoadPercent - getCurrentLoadPercentage() );
+    }
+
     public String getformType() {
         return this.formType;
     }
