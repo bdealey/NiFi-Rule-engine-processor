@@ -4,6 +4,12 @@
 [![MatrixBI](docs/matrixbi-logo.png)](http://www.matrixbi.co.il/)
 
 
+# NiFi-Rule-engine-processor STATEFUL
+
+Version 2.0 is the stateful version of the engine processor.  This allows us to maintain state (working memory facts) between message processing.  
+
+Extra care needs to be taken to manually remove facts from working memory otherwise they will accumulate.
+
 # NiFi-Rule-engine-processor
 
 [![Build Status](https://travis-ci.org/alefbt/NiFi-Rule-engine-processor.svg?branch=master)](https://travis-ci.org/alefbt/NiFi-Rule-engine-processor)

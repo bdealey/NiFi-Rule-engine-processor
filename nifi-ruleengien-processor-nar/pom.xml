@@ -16,7 +16,7 @@
 	<parent>
 		<groupId>com.matrixbi</groupId>
 		<artifactId>ruleengine-processor</artifactId>
-		<version>1.0</version>
+		<version>2.0</version>
 	</parent>
 
 	<artifactId>nifi-ruleengien-processor-nar</artifactId>
@@ -30,7 +30,8 @@
 		<dependency>
 			<groupId>com.matrixbi</groupId>
 			<artifactId>nifi-ruleengien-processor-processors</artifactId>
-			<version>${project.version}</version>
+			<!-- version>${project.version}</version -->
+			<version>2.0</version>
 		</dependency>
 	</dependencies>
 

@@ -26,11 +26,11 @@ public class RuleEngienTest {
 	public void test_person() {
 		Person p = new Person();
 		p.setName("Yehuda");
-		p.setTime(11);
+		p.setTime(6);
 		kieServices.execute(p);
 		assertEquals(p.getGreet(),"Good Morning Yehuda");
 		
-		p.setTime(12);
+		p.setTime(15);
 		kieServices.execute(p);
 		assertEquals(p.getGreet(),"Good Afternoon Yehuda");
 	}

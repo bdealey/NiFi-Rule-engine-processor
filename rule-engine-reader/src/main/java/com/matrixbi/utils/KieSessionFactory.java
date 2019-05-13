@@ -14,22 +14,32 @@ import org.kie.api.builder.Message.Level;
 import org.kie.api.io.KieResources;
 import org.kie.api.io.Resource;
 import org.kie.api.runtime.KieContainer;
-import org.kie.api.runtime.StatelessKieSession;
+//WPD import org.kie.api.runtime.StatelessKieSession;
+import org.kie.api.runtime.KieSession;
+
 
 public class KieSessionFactory implements Serializable {
 
 	private static final long serialVersionUID = 1385358191849318526L;
 	
 	
-	static StatelessKieSession statelessKieSession;
+	//WPD static StatelessKieSession statelessKieSession;
+	static KieSession KieSession;
 
-	public static StatelessKieSession getKieSession(String filename) {
-		if (statelessKieSession == null)
-			statelessKieSession = getNewKieSession(filename);
+
+//	public static StatelessKieSession getKieSession(String filename) {
+//		if (statelessKieSession == null)
+//			statelessKieSession = getNewKieSession(filename);
+//		
+//		return statelessKieSession;
+//	}
+
+	public static KieSession getKieSession(String filename) {
+		if (KieSession == null)
+		KieSession = getNewKieSession(filename);
 		
-		return statelessKieSession;
+		return KieSession;
 	}
-
 	public String readFile(String filename, Charset encoding) {
 		String res = "";
 		try {
@@ -42,7 +52,7 @@ public class KieSessionFactory implements Serializable {
 		return res;
 	}
 
-	public static StatelessKieSession getNewKieSession(String drlFileName) {
+	public static KieSession getNewKieSession(String drlFileName) {
 		KieServices kieServices = KieServices.Factory.get();
 		
 		KieResources kieResources = kieServices.getResources();
@@ -62,6 +72,6 @@ public class KieSessionFactory implements Serializable {
 
 		KieContainer kContainer = kieServices.newKieContainer(kieRepository.getDefaultReleaseId());
 		
-		return kContainer.newStatelessKieSession();
+		return kContainer.newKieSession();
 	}
 }
