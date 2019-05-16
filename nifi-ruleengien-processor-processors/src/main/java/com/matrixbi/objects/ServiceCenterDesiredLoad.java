@@ -7,14 +7,16 @@ import java.util.Objects;
 public class ServiceCenterDesiredLoad {
 
     private String formType;
+    private String formSubType;
     private String serviceCenterAbbr;
     private Double desiredLoadPercentage;
 
     public ServiceCenterDesiredLoad() {
     }
 
-    public ServiceCenterDesiredLoad(String formType, String serviceCenterAbbr, Double desiredLoadPercentage) {
+    public ServiceCenterDesiredLoad(String formType, String formSubType, String serviceCenterAbbr, Double desiredLoadPercentage) {
         this.formType = formType;
+        this.formSubType = formSubType;
         this.serviceCenterAbbr = serviceCenterAbbr;
         this.desiredLoadPercentage = desiredLoadPercentage;
     }
@@ -23,8 +25,16 @@ public class ServiceCenterDesiredLoad {
         return this.formType;
     }
 
+    public String getFormSubType() {
+        return this.formSubType;
+    }
+
     public void setFormType(String formType) {
         this.formType = formType;
+    }
+
+    public void setFormSubType(String formSubType) {
+        this.formSubType = formSubType;
     }
 
     public String getServiceCenterAbbr() {
@@ -78,6 +88,7 @@ public class ServiceCenterDesiredLoad {
     public String toString() {
         return "{" +
             " formType='" + getFormType() + "'" +
+            ", formSubType='" + getFormSubType() + "'" +
             ", serviceCenterAbbr='" + getServiceCenterAbbr() + "'" +
             ", desiredLoadPercentage='" + getDesiredLoadPercentage() + "'" +
             "}";

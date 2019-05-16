@@ -54,7 +54,13 @@ public class BusinessObjectJson extends BusinessObject {
 //	}
 
 	public String get(String path) {
-		return getPath(path).getAsString();
+		String result = "";
+		try {
+			result = getPath(path).getAsString();
+		} catch (Exception e) {
+			//TODO: handle exception
+		}
+		return result;
 	}
 	public float getAsFloat(String path) {
 		return getPath(path).getAsFloat();

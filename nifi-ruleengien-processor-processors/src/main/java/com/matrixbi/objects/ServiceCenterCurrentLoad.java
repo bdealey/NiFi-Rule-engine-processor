@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class ServiceCenterCurrentLoad {
 
     private String formType;
+    private String formSubType;
     private String serviceCenterAbbr;
     private int numFormsSent;
     private Double currentLoadPercentage;
@@ -13,8 +14,9 @@ public class ServiceCenterCurrentLoad {
     public ServiceCenterCurrentLoad() {
     }
 
-    public ServiceCenterCurrentLoad(String formType, String serviceCenterAbbr, int numFormsSent, Double currentLoadPercentage, Double underUtilizationPercentage) {
+    public ServiceCenterCurrentLoad(String formType, String formSubType, String serviceCenterAbbr, int numFormsSent, Double currentLoadPercentage, Double underUtilizationPercentage) {
         this.formType = formType;
+        this.formSubType = formSubType;
         this.serviceCenterAbbr = serviceCenterAbbr;
         this.numFormsSent = numFormsSent;
         this.currentLoadPercentage = currentLoadPercentage;
@@ -36,11 +38,16 @@ public class ServiceCenterCurrentLoad {
     public String getformType() {
         return this.formType;
     }
+    public String getformSubType() {
+        return this.formSubType;
+    }
 
     public void setformType(String formType) {
         this.formType = formType;
     }
-
+    public void setformSubType(String formSubType) {
+        this.formSubType = formSubType;
+    }
     public String getServiceCenterAbbr() {
         return this.serviceCenterAbbr;
     }
@@ -106,6 +113,7 @@ public class ServiceCenterCurrentLoad {
     public String toString() {
         return "{" +
             " formType='" + getformType() + "'" +
+            ", formSubType='" + getformSubType() + "'" +
             ", serviceCenterAbbr='" + getServiceCenterAbbr() + "'" +
             ", numFormsSent='" + getNumFormsSent() + "'" +
             ", currentLoadPercentage='" + getCurrentLoadPercentage() + "'" +
